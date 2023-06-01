@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SLD521_SA.Models.Paper>
+
+@{
+    ViewBag.Title = "Papers";
+}
+
+<h2>My Papers</h2>
+
+<p>
+    @Html.ActionLink("Submit New Paper", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaperID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Submission_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaperID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Submission_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic)
+        </td>
+        <td>
+            <button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { id = item.PaperID }, new { @style = "color:#FFFFFF;" })</button> 
+            <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.PaperID }, new { @style = "color:#FFFFFF;" })</button>
+        </td>
+    </tr>
+}
+
+</table>
